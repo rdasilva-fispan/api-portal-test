@@ -1,7 +1,7 @@
 post:
   tags:
     - Token
-  summary: Authenticates users on FI.SPAN platform
+  summary: Authenticates users
   description: |
     Doing the authentication requires that the grant_type is sent as a parameter. The possible grant types are:
     * `client_credentials`: Used for service providers and end users.
