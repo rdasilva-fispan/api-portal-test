@@ -22,7 +22,7 @@ tags:
 servers:
   - url: 'https://dev1.fispan.cloud'
 paths:
-  $ref: './paths.yml'
+  $ref: './paths.yaml'
 components:
   securitySchemes:
     $ref: './security_schemes.yaml'
