@@ -1,0 +1,10 @@
+name: grant_type
+in: query
+schema:
+  type: string
+  enum: [client_credentials, password]
+required: true
+description: |
+  The type of grant that will be used to authenticate the user.
+  * `client_credentials` - OAuth2 client credentials flow.
+  * `password` - OAuth2 password flow.

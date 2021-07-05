@@ -1,0 +1,20 @@
+type: object
+properties:
+  access_token:
+    description: The access token in GUID format.
+    type: string
+    minLength: 36
+    maxLength: 36
+    example: 261e80be-58e1-4ecf-8f24-c1cc3f8ff168
+  token_type:
+    description: The type of the token.
+    type: string
+    example: bearer
+  expires_in:
+    description: The duration in seconds of the token before it expires.
+    type: integer
+    example: 1800
+  scope:
+    description: The scope of the generated token.
+    type: string
+    example: read write
