@@ -1,0 +1,16 @@
+# oauth2ClientCredentials:
+#   type: oauth2
+#   flows:
+#     clientCredentials:
+#       authorizationUrl: '/accounts/oauth/token?grant_type=client_credentials'
+#       scopes: {}
+# api_key:
+#   type: apiKey
+#   in: header
+#   name: api_key
+basicAuth:
+  type: http
+  scheme: basic
+bearerAuth:
+  type: http
+  scheme: bearer

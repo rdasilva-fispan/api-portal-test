@@ -11,38 +11,18 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://fispan.com/wp-content/uploads/2019/09/Screenshot.png'
-  description: Description of my project
-  #  $ref: ./info-description.md
-#externalDocs:
-#  description: Find out how to create a GitHub repo for your OpenAPI definition.
-#  url: 'https://github.com/Rebilly/generator-openapi-repo'
+  description: 
+    $ref: './commons/description.md'
 x-tagGroups:
   - name: Authentication
     tags:
-      - Token
+      - OAuth Token
 tags:
-  - name: Token
-    description: Example echo operations.
+  $ref: './tags.yaml'
 servers:
   - url: 'https://dev1.fispan.cloud'
 paths:
-  '/accounts/oauth/token':
-    $ref: 'paths/accounts/oauth/token/spec.yaml'
+  $ref: './paths.yml'
 components:
   securitySchemes:
-#    oauth2ClientCredentials:
-#      type: oauth2
-#      flows:
-#        clientCredentials:
-#          authorizationUrl: '/accounts/oauth/token?grant_type=client_credentials'
-#          scopes: {}
-#    api_key:
-#      type: apiKey
-#      in: header
-#      name: api_key
-    basicAuth:
-      type: http
-      scheme: basic
-    bearerAuth:
-      type: http
-      scheme: bearer
+    $ref: './security_schemes.yaml'

@@ -1,0 +1,30 @@
+post:
+  tags:
+    - OAuth Token
+  summary: Authenticates users on FI.SPAN
+  description: |-
+    Doing the authentication requires that the grant_type is sent as a parameter. The possible grant types are:
+    * `client_credentials`: Used for service providers and end users.
+    * `password`: Used for admin users.
+  operationId: getOAuthToken
+  security:
+    - basicAuth: []
+  parameters:
+    - $ref: "../parameters/accounts_oauth_token_grant_type.yaml"
+    - $ref: "../parameters/accounts_oauth_token_username.yaml"
+    - $ref: "../parameters/accounts_oauth_token_password.yaml"
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          $ref: "../responses/auth_token.yaml"
+    '400':
+      description: Invalid Request
+      content:
+        application/json:
+          $ref: "../responses/error.yaml"
+      example:
+        error: unsupported_grant_type
+        error_description: Unsupported grant type
+

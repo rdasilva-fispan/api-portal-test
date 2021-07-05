@@ -1,0 +1,2 @@
+- name: OAuth Token
+  description: Authenticates the user and retrieves a valid OAuth2 Bearer Token
