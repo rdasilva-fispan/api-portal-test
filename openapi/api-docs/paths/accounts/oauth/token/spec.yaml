@@ -11,16 +11,8 @@ post:
     - basicAuth: []
   parameters:
     - $ref: ../../../../components/parameters/accounts/oauth/token/grant-type.yaml
-    - name: username
-      in: query
-      schema:
-        type: string
-      description: The username to be used to authenticate the user. Only valid on for grant_type `password`.
-    - name: password
-      in: query
-      schema:
-        type: string
-      description: The password to be used to authenticate the user. Only valid on for grant_type `password`.
+    - $ref: ../../../../components/parameters/accounts/oauth/token/username.yaml
+    - $ref: ../../../../components/parameters/accounts/oauth/token/password.yaml
   responses:
     '200':
       description: Success
