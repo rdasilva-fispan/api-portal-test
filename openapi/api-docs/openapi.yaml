@@ -16,6 +16,10 @@ info:
 #externalDocs:
 #  description: Find out how to create a GitHub repo for your OpenAPI definition.
 #  url: 'https://github.com/Rebilly/generator-openapi-repo'
+x-tagGroups:
+  - name: Authentication
+    tags:
+      - Token
 tags:
   - name: Token
     description: Example echo operations.
