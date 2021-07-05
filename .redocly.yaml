@@ -15,7 +15,6 @@ referenceDocs:
     languages:
       - lang: "curl"
       - lang: "C#"
-      - lang: "Java+Apache"
       - lang: "Java"
       - lang: "JavaScript"
       - lang: "Node.js"
