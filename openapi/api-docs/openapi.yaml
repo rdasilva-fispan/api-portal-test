@@ -20,9 +20,9 @@ x-tagGroups:
   - name: Authentication
     tags:
       - Token
-tags:
-  - name: Token
-    description: Example echo operations.
+#tags:
+#  - name: Token
+#    description: Example echo operations.
 servers:
   - url: 'https://dev1.fispan.cloud'
 paths:
