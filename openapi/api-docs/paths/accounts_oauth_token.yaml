@@ -24,7 +24,4 @@ post:
       content:
         application/json:
           $ref: "../responses/error.yaml"
-        example:
-          error: unsupported_grant_type
-          error_description: Unsupported grant type
 

@@ -9,3 +9,6 @@ schema:
       description: The description of the error
       type: string
       example: Unsupported grant type
+example:
+  error: unsupported_grant_type
+  error_description: Unsupported grant type
