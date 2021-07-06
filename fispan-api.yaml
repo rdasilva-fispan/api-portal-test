@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: fispan.com
+  contact:
+    email: sales@fispan.com
+    url: 'https://fispan.com/contact-us/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://fispan.com/wp-content/uploads/2019/09/Screenshot.png'
+  description: >-
+    # Introduction
+
+    ## The Future Of Commercial Banking Is Integrated
+
+    FISPAN makes it simple for banks to remove friction and provide the banking
+    experience of the future to commercial clients. We turn banking services
+    into branded banking experiences embedded within the ERP and accounting
+    software your clients rely on to run their business.
+x-tagGroups:
+  - name: Authentication
+    tags:
+      - OAuth Token
+tags:
+  - name: OAuth Token
+    description: Authenticates the user and retrieves a valid OAuth2 Bearer Token
+servers:
+  - url: 'https://dev1.fispan.cloud'
+paths:
+  /accounts/oauth/token:
+    post:
+      tags:
+        - OAuth Token
+      summary: Authenticates users on FI.SPAN
+      description: >-
+        Doing the authentication requires that the grant_type is sent as a
+        parameter. The possible grant types are:
+
+        * `client_credentials`: Used for service providers and end users.
+
+        * `password`: Used for admin users.
+      operationId: getOAuthToken
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: '#/components/parameters/accounts_oauth_token_grant_type'
+        - $ref: '#/components/parameters/accounts_oauth_token_username'
+        - $ref: '#/components/parameters/accounts_oauth_token_password'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/auth_token'
+              example:
+                access_token: 261e80be-58e1-4ecf-8f24-c1cc3f8ff168
+                token_type: bearer
+                expires_in: 1800
+                scope: read write
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+              example:
+                error: unsupported_grant_type
+                error_description: Unsupported grant type
+        '401':
+          description: Unauthorized Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error'
+              example:
+                error: unauthorized
+                error_description: Full authentication is required to access this resource
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+  parameters:
+    accounts_oauth_token_grant_type:
+      name: grant_type
+      in: query
+      schema:
+        type: string
+        enum:
+          - client_credentials
+          - password
+      required: true
+      description: |
+        The type of grant that will be used to authenticate the user.
+        * `client_credentials` - OAuth2 client credentials flow.
+        * `password` - OAuth2 password flow.
+    accounts_oauth_token_username:
+      name: username
+      in: query
+      schema:
+        type: string
+      required: false
+      description: >-
+        The username to be used to authenticate the user. Only valid on for
+        grant_type `password`.
+    accounts_oauth_token_password:
+      name: password
+      in: query
+      schema:
+        type: string
+      required: false
+      description: >-
+        The password to be used to authenticate the user. Only valid on for
+        grant_type `password`.
+  schemas:
+    auth_token:
+      type: object
+      properties:
+        access_token:
+          description: The access token in GUID format.
+          type: string
+          minLength: 36
+          maxLength: 36
+          example: 261e80be-58e1-4ecf-8f24-c1cc3f8ff168
+        token_type:
+          description: The type of the token.
+          type: string
+          example: bearer
+        expires_in:
+          description: The duration in seconds of the token before it expires.
+          type: integer
+          example: 1800
+        scope:
+          description: The scope of the generated token.
+          type: string
+          example: read write
+    error:
+      type: object
+      properties:
+        error:
+          description: The name of the error.
+          type: string
+          example: unsupported_grant_type
+        error_description:
+          description: The description of the error
+          type: string
+          example: Unsupported grant type
