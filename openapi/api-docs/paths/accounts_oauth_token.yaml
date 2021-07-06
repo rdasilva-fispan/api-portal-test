@@ -18,10 +18,28 @@ post:
       description: Success
       content:
         application/json:
-          $ref: "../responses/auth_token.yaml"
+          schema:
+            $ref: "../responses/auth_token.yaml"
+          example:
+            access_token: 261e80be-58e1-4ecf-8f24-c1cc3f8ff168
+            token_type: bearer
+            expires_in: 1800
+            scope: read write
     '400':
       description: Invalid Request
       content:
         application/json:
-          $ref: "../responses/error.yaml"
-
+          schema:
+            $ref: "../responses/error.yaml"
+          example:
+            error: unsupported_grant_type
+            error_description: Unsupported grant type
+    '401':
+      description: Unauthorized Request
+      content:
+        application/json:
+          schema:
+            $ref: "../responses/error.yaml"
+          example:
+            error: unauthorized
+            error_description: Full authentication is required to access this resource
