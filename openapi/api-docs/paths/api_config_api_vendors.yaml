@@ -1,0 +1,26 @@
+get:
+  tags:
+    - Vendor
+  summary: Lists paged FI.SPAN vendors.
+  description: |-
+    This API will search FI.SPAN vendors associated with the logged in client or service provider and return
+    all the vendors found paginated. The default page size is 20. The page number and its size can be changed
+    using the optional parameter below
+    * `page`: The page number to be returned.
+    * `size`: The size of the page to be returned.
+  operationId: listVendors
+  security:
+    - bearerAuth: []
+  parameters:
+    - $ref: "../parameters/page_query_parameter.yaml"
+    - $ref: "../parameters/size_query_parameter.yaml"
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: "../responses/array_of_vendors.yaml"
+          example:
+            id: c9802206-1785-43a4-97e5-aaa3e69651f8
+            externalId: null

@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    description: The internal idenification for the ERP.
+    type: string
+    example: 7029706a-40cf-4d39-a06a-5ca5eb9361da
+  erpProvider:
+    description: The erp's provider.
+    $ref: './erp_provider.yaml'
+    example: NETSUITE

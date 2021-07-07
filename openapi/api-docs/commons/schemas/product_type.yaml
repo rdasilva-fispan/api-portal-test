@@ -1,0 +1,11 @@
+type: string
+enum: [
+  PAYMENT,
+  RECEIVABLE,
+  LENDING,
+  BANK_ACCOUNT_INFO,
+  VALIDATION,
+  FX_INFO,
+  ENRICHMENT,
+  REMITTANCE
+]

@@ -1,0 +1,8 @@
+name: page
+in: query
+schema:
+  type: integer
+  minimum: 0
+  multipleOf: 1
+required: false
+description: The page number to be returned. It goes from 0 to N, where N depends on the number of records.

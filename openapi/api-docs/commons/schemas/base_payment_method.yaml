@@ -1,0 +1,6 @@
+type: object
+properties:
+  default:
+    description: Indicates if the given payment method is to be used by default.
+    type: boolean
+    example: true

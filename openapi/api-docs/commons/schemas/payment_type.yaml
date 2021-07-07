@@ -1,0 +1,17 @@
+type: string
+enum: [
+  ACH,
+  CHECK,
+  CPA,
+  EMT,
+  RTP,
+  VCC,
+  POSITIVE_PAY,
+  WIRE,
+  SEPA,
+  BACS,
+  INTERNATIONAL_WIRE,
+  INTERNATIONAL_ACH,
+  ECHECK,
+  A2A_TRANSFER
+]

@@ -17,6 +17,9 @@ x-tagGroups:
   - name: Authentication
     tags:
       - OAuth Token
+  - name: Vendor
+    tags:
+      - Vendor
 tags:
   $ref: './tags.yaml'
 servers:

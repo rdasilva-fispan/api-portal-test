@@ -23,9 +23,14 @@ x-tagGroups:
   - name: Authentication
     tags:
       - OAuth Token
+  - name: Vendor
+    tags:
+      - Vendor
 tags:
   - name: OAuth Token
-    description: Authenticates the user and retrieves a valid OAuth2 Bearer Token
+    description: Authenticates the user and retrieves a valid OAuth2 Bearer Token.
+  - name: Vendor
+    description: Manages vendors in FI.SPAN platform.
 servers:
   - url: 'https://dev1.fispan.cloud'
 paths:
@@ -78,6 +83,39 @@ paths:
               example:
                 error: unauthorized
                 error_description: Full authentication is required to access this resource
+  /api/config-api/vendors:
+    get:
+      tags:
+        - Vendor
+      summary: Lists paged FI.SPAN vendors.
+      description: >-
+        This API will search FI.SPAN vendors associated with the logged in
+        client or service provider and return
+
+        all the vendors found paginated. The default page size is 20. The page
+        number and its size can be changed
+
+        using the optional parameter below
+
+        * `page`: The page number to be returned.
+
+        * `size`: The size of the page to be returned.
+      operationId: listVendors
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/page_query_parameter'
+        - $ref: '#/components/parameters/size_query_parameter'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/array_of_vendors'
+              example:
+                id: c9802206-1785-43a4-97e5-aaa3e69651f8
+                externalId: null
 components:
   securitySchemes:
     basicAuth:
@@ -114,10 +152,35 @@ components:
       in: query
       schema:
         type: string
+        format: password
       required: false
       description: >-
         The password to be used to authenticate the user. Only valid on for
         grant_type `password`.
+    page_query_parameter:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        multipleOf: 1
+      required: false
+      description: >-
+        The page number to be returned. It goes from 0 to N, where N depends on
+        the number of records.
+    size_query_parameter:
+      name: size
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        multipleOf: 1
+      required: false
+      description: >-
+        The number of records retrieved per page. Defaults to 20 and goes up to
+        1000, even if
+
+        it's set to a number greater than 1000.
   schemas:
     auth_token:
       type: object
@@ -151,3 +214,177 @@ components:
           description: The description of the error
           type: string
           example: Unsupported grant type
+    base_payment_method:
+      type: object
+      properties:
+        default:
+          description: Indicates if the given payment method is to be used by default.
+          type: boolean
+          example: true
+    address_type:
+      type: string
+      enum:
+        - PAYMENT
+        - CONTACT
+    payment_type:
+      type: string
+      enum:
+        - ACH
+        - CHECK
+        - CPA
+        - EMT
+        - RTP
+        - VCC
+        - POSITIVE_PAY
+        - WIRE
+        - SEPA
+        - BACS
+        - INTERNATIONAL_WIRE
+        - INTERNATIONAL_ACH
+        - ECHECK
+        - A2A_TRANSFER
+    address:
+      type: object
+      properties:
+        externalId:
+          description: The external identification for the address.
+          type: string
+          nullable: true
+          example: address_external_id
+        streetName:
+          description: The name of the street.
+          type: string
+          nullable: true
+          example: Main Avenue
+        streetNumber:
+          description: The property number on the given street.
+          type: string
+          nullable: true
+          example: '125'
+        city:
+          description: The city where the address is located
+          type: string
+          nullable: true
+          example: New York
+        stateProvince:
+          description: The state or province where the address is located.
+          type: string
+          nullable: true
+          example: NY
+        country:
+          description: The country where the address is located.
+          type: string
+          nullable: true
+          example: United States of America
+        postalCode:
+          description: The address' postal code.
+          type: string
+          nullable: true
+          example: '95625'
+        line1:
+          description: The line 1 for the address.
+          type: string
+          nullable: true
+          deprecated: true
+          example: Suite 501
+        line2:
+          description: The line 1 for the address.
+          type: string
+          nullable: true
+          example: Close to the Burger King
+        types:
+          description: The types of the address.
+          type: array
+          items:
+            $ref: '#/components/schemas/address_type'
+          minItems: 0
+          maxItems: 2
+        defaultFor:
+          description: >-
+            Indicates what payment types will use this address as their default
+            address
+          type: array
+          items:
+            $ref: '#/components/schemas/payment_type'
+          minItems: 0
+          maxItems: 14
+    subject_of_payment:
+      type: object
+      properties:
+        externalId:
+          description: The external identification for the subject of payment.
+          type: string
+          example: vendor_external_id
+          nullable: true
+        type:
+          description: The subject of payment's type.
+          type: string
+          enum:
+            - INDIVIDUAL
+            - COMPANY
+          nullable: true
+          example: INDIVIDUAL
+        taxId:
+          description: Taxation identification number for the company.
+          type: string
+          nullable: string
+          example: 123456789
+          minLength: 9
+          maxLength: 9
+        principleOfficerDoB:
+          description: Date of Birth is of principle officer within the organization.
+          type: string
+          format: date
+          nullable: true
+          example: '2017-07-21'
+        ssn:
+          description: >-
+            SSN is of principle officer within the organization. SSN length is
+            either 4 or 10 characters long
+          type: string
+          nullable: true
+          minLength: 4
+          maxLength: 10
+          example: '1234567890'
+        registeredPaymentMethods:
+          description: The registered payment methods within the company.
+          deprecated: true
+          $ref: '#/components/schemas/base_payment_method'
+        address:
+          description: The address associated with the subject of payment.
+          $ref: '#/components/schemas/address'
+          deprecated: true
+          example:
+            externalId: null
+            streetName: Main Avenue
+            streetNumber: 125
+            city: New York
+            stateProvince: NY
+            country: United States of America
+            postalCode: '95825'
+            line1: null
+            line2: Suite 501
+            types: []
+            defaultFor:
+              - ACH
+    vendor:
+      type: object
+      properties:
+        id:
+          description: The vendor id in GUID format.
+          type: string
+          minLength: 36
+          maxLength: 36
+          example: c9802206-1785-43a4-97e5-aaa3e69651f8
+        externalId:
+          description: The vendor's external identification.
+          type: string
+          nullable: true
+          example: vendor_external_id
+        subjectOfPayment:
+          $ref: '#/components/schemas/subject_of_payment'
+    array_of_vendors:
+      type: array
+      items:
+        $ref: '#/components/schemas/vendor'
+      minItems: 0

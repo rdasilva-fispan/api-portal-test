@@ -1,0 +1,4 @@
+type: array
+items:
+  $ref: '../commons/schemas/vendor.yaml'
+minItems: 0

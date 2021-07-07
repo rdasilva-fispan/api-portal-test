@@ -1,2 +1,4 @@
 - name: OAuth Token
-  description: Authenticates the user and retrieves a valid OAuth2 Bearer Token
+  description: Authenticates the user and retrieves a valid OAuth2 Bearer Token.
+- name: Vendor
+  description: Manages vendors in FI.SPAN platform.

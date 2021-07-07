@@ -1,0 +1,62 @@
+type: object
+properties:
+  externalId:
+    description: The external identification for the address.
+    type: string
+    nullable: true
+    example: address_external_id
+  streetName:
+    description: The name of the street.
+    type: string
+    nullable: true
+    example: Main Avenue
+  streetNumber:
+    description: The property number on the given street.
+    type: string
+    nullable: true
+    example: '125'
+  city:
+    description: The city where the address is located
+    type: string
+    nullable: true
+    example: New York
+  stateProvince:
+    description: The state or province where the address is located.
+    type: string
+    nullable: true
+    example: NY
+  country:
+    description: The country where the address is located.
+    type: string
+    nullable: true
+    example: United States of America
+  postalCode:
+    description: The address' postal code.
+    type: string
+    nullable: true
+    example: '95625'
+  line1:
+    description: The line 1 for the address.
+    type: string
+    nullable: true
+    deprecated: true
+    example: Suite 501
+  line2:
+    description: The line 1 for the address.
+    type: string
+    nullable: true   
+    example: Close to the Burger King
+  types:
+    description: The types of the address.
+    type: array
+    items:
+      $ref: './address_type.yaml'
+    minItems: 0
+    maxItems: 2
+  defaultFor:
+    description: Indicates what payment types will use this address as their default address
+    type: array
+    items:
+      $ref: './payment_type.yaml'
+    minItems: 0
+    maxItems: 14

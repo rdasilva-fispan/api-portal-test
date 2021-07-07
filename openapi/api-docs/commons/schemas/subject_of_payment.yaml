@@ -1,0 +1,58 @@
+type: object
+properties:
+  externalId:
+    description: The external identification for the subject of payment.
+    type: string
+    example: "vendor_external_id"
+    nullable: true
+  type:
+    description: The subject of payment's type.
+    type: string
+    enum: [INDIVIDUAL, COMPANY]
+    nullable: true
+    example: INDIVIDUAL
+  taxId:
+    description: Taxation identification number for the company.
+    type: string
+    nullable: string
+    example: 123456789
+    minLength: 9
+    maxLength: 9
+  principleOfficerDoB:
+    description: Date of Birth is of principle officer within the organization.
+    type: string
+    format: date
+    nullable: true
+    example: '2017-07-21'
+  ssn:
+    description: SSN is of principle officer within the organization. SSN length is either 4 or 10 characters long
+    type: string
+    nullable: true
+    minLength: 4
+    maxLength: 10
+    example: '1234567890'
+  availablePaymentMethods:
+    description: The possible available payment methods.
+    $ref: ''
+  registeredPaymentMethods:
+    description: The registered payment methods within the company.
+    deprecated: true
+    $ref: './base_payment_method.yaml'
+  address:
+    description: The address associated with the subject of payment.
+    $ref: './address.yaml'
+    deprecated: true
+    example:
+      externalId: null
+      streetName: Main Avenue
+      streetNumber: 125
+      city: New York
+      stateProvince: NY
+      country: United States of America
+      postalCode: '95825'
+      line1: null
+      line2: Suite 501
+      types: []
+      defaultFor: [ACH]
+
+  
