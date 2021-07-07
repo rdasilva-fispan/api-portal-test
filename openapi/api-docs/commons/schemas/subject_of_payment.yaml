@@ -39,11 +39,6 @@ properties:
     anyOf:
       - $ref: './ACH.yaml'
       - $ref: './EMT.yaml'
-    discriminator:
-      propertyName: type
-      mapping:
-        ACH: './ACH.yaml'
-        EMT: './EMT.yaml'
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'
