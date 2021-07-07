@@ -8,7 +8,6 @@ properties:
     description: Bank specific account id
     type: string
     nullable: true
-    required: false
     example: "bank_account_external_id"
   erpIds:
     description: The ERP providers for the bank account
