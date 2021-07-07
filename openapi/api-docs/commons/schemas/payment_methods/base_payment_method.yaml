@@ -9,4 +9,4 @@ properties:
     type: boolean
     example: true
   bankAccount:
-    $ref: './bank_account.yaml'
+    $ref: '../bank_account.yaml'
