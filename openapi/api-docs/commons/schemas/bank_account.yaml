@@ -56,4 +56,6 @@ properties:
     example: '******7395'
   enabledProducts:
     description: The products that are enabled for the given bank account.
-    $ref: './product_type.yaml'
+    type: array
+    item:
+      $ref: './product_type.yaml'
