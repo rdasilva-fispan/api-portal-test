@@ -57,5 +57,5 @@ properties:
   enabledProducts:
     description: The products that are enabled for the given bank account.
     type: array
-    item:
+    items:
       $ref: './product_type.yaml'
