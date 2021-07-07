@@ -11,6 +11,9 @@ referenceDocs:
     colors:
       primary:
         main: "#32329f"
+    typography:
+      heading1:
+        lineHeight: 15px
   generateCodeSamples:
     languages:
       - lang: "curl"

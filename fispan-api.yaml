@@ -32,6 +32,7 @@ tags:
   - name: Vendor
     description: Manages vendors in FI.SPAN platform.
 servers:
+  - url: 'http://localhost'
   - url: 'https://dev1.fispan.cloud'
 paths:
   /accounts/oauth/token:
@@ -214,18 +215,6 @@ components:
           description: The description of the error
           type: string
           example: Unsupported grant type
-    base_payment_method:
-      type: object
-      properties:
-        default:
-          description: Indicates if the given payment method is to be used by default.
-          type: boolean
-          example: true
-    address_type:
-      type: string
-      enum:
-        - PAYMENT
-        - CONTACT
     payment_type:
       type: string
       enum:
@@ -243,6 +232,18 @@ components:
         - INTERNATIONAL_ACH
         - ECHECK
         - A2A_TRANSFER
+    base_payment_method:
+      type: object
+      properties:
+        default:
+          description: Indicates if the given payment method is to be used by default.
+          type: boolean
+          example: true
+    address_type:
+      type: string
+      enum:
+        - PAYMENT
+        - CONTACT
     address:
       type: object
       properties:
@@ -327,7 +328,7 @@ components:
         taxId:
           description: Taxation identification number for the company.
           type: string
-          nullable: string
+          nullable: true
           example: 123456789
           minLength: 9
           maxLength: 9
@@ -346,6 +347,9 @@ components:
           minLength: 4
           maxLength: 10
           example: '1234567890'
+        availablePaymentMethods:
+          description: The possible available payment methods.
+          $ref: '#/components/schemas/payment_type'
         registeredPaymentMethods:
           description: The registered payment methods within the company.
           deprecated: true

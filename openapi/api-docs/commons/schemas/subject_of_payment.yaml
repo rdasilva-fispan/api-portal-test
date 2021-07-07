@@ -33,7 +33,7 @@ properties:
     example: '1234567890'
   availablePaymentMethods:
     description: The possible available payment methods.
-    $ref: ''
+    $ref: './payment_type.yaml'
   registeredPaymentMethods:
     description: The registered payment methods within the company.
     deprecated: true
