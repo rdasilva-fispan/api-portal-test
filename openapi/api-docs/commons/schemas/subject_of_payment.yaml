@@ -37,8 +37,12 @@ properties:
     description: The registered payment methods within the company.
     deprecated: true
     anyOf:
-      - $ref: './ACH.yaml'
-      - $ref: './EMT.yaml'
+      - $ref: './payment_methods/ACH.yaml'
+      - $ref: './payment_methods/Check.yaml'
+      - $ref: './payment_methods/CPA.yaml'
+      - $ref: './payment_methods/ECheck.yaml'
+      - $ref: './payment_methods/EMT.yaml'
+      - $ref: './payment_methods/WIRE.yaml'
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'
