@@ -27,14 +27,14 @@ get:
               subjectOfPayment:
                 externalId: vendor_external_id
                 type: INDIVIDUAL
-                taxId: 123456789
+                taxId: '123456789'
                 principleOfficerDoB: '2001-07-21'
                 ssn: '1234567890'
                 availablePaymentMethods:
-                  - ECHECK
-                  - ACH
+                  - "ECHECK"
+                  - "ACH"
                 registeredPaymentMethods:
-                  - type: ECheck
+                  - type: "ECheck"
                     default: true
                     bankAccount:
                       id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
@@ -43,12 +43,12 @@ get:
                       transitNumber: '17895'
                       accountNumber: '3258974'
                       enabledProducts:
-                        - PAYMENT
-                        - RECEIVABLE
-                        - REMITTANCE
+                        - "PAYMENT"
+                        - "RECEIVABLE"
+                        - "REMITTANCE"
                     email: email@email.com
                     name: Contact Name
-                  - type: ACH
+                  - type: "ACH"
                     default: false
                     bankAccount:
                       id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
@@ -57,9 +57,9 @@ get:
                       transitNumber: '17895'
                       accountNumber: '3258974'
                       enabledProducts:
-                        - PAYMENT
-                        - RECEIVABLE
-                        - REMITTANCE
+                        - "PAYMENT"
+                        - "RECEIVABLE"
+                        - "REMITTANCE"
                 address:
                   externalId: null
                   streetName: Main Avenue
