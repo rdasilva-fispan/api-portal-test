@@ -70,5 +70,5 @@ get:
                   postalCode: '95625'
                   line2: Close to Burger King
                   defaultFor:
-                    - ECheck
-                    - ACH
+                    - "ECHECK"
+                    - "ACH"

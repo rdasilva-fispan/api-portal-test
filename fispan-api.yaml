@@ -115,8 +115,56 @@ paths:
               schema:
                 $ref: '#/components/schemas/array_of_vendors'
               example:
-                id: c9802206-1785-43a4-97e5-aaa3e69651f8
-                externalId: null
+                - id: c9802206-1785-43a4-97e5-aaa3e69651f8
+                  externalId: null
+                  subjectOfPayment:
+                    externalId: vendor_external_id
+                    type: INDIVIDUAL
+                    taxId: '123456789'
+                    principleOfficerDoB: '2001-07-21'
+                    ssn: '1234567890'
+                    availablePaymentMethods:
+                      - ECHECK
+                      - ACH
+                    registeredPaymentMethods:
+                      - type: ECheck
+                        default: true
+                        bankAccount:
+                          id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
+                          externalId: null
+                          institutionNumber: '001'
+                          transitNumber: '17895'
+                          accountNumber: '3258974'
+                          enabledProducts:
+                            - PAYMENT
+                            - RECEIVABLE
+                            - REMITTANCE
+                        email: email@email.com
+                        name: Contact Name
+                      - type: ACH
+                        default: false
+                        bankAccount:
+                          id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
+                          externalId: null
+                          institutionNumber: '001'
+                          transitNumber: '17895'
+                          accountNumber: '3258974'
+                          enabledProducts:
+                            - PAYMENT
+                            - RECEIVABLE
+                            - REMITTANCE
+                    address:
+                      externalId: null
+                      streetName: Main Avenue
+                      streetNumber: '125'
+                      city: New York
+                      stateProvince: NY
+                      country: United States of America
+                      postalCode: '95625'
+                      line2: Close to Burger King
+                      defaultFor:
+                        - ECHECK
+                        - ACH
 components:
   securitySchemes:
     basicAuth:
@@ -341,7 +389,9 @@ components:
           example: '******7395'
         enabledProducts:
           description: The products that are enabled for the given bank account.
-          $ref: '#/components/schemas/product_type'
+          type: array
+          items:
+            $ref: '#/components/schemas/product_type'
     base_payment_method:
       type: object
       properties:
@@ -358,6 +408,24 @@ components:
     ACH:
       allOf:
         - $ref: '#/components/schemas/base_payment_method'
+    Check:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
+    CPA:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
+    ECheck:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
+        - type: object
+          properties:
+            email:
+              description: The email associated with the EMT payment method.
+              type: string
+              format: email
+            name:
+              description: The name associated with the EMT payment method.
+              type: string
     EMT:
       allOf:
         - $ref: '#/components/schemas/base_payment_method'
@@ -367,6 +435,9 @@ components:
               description: The email associated with the EMT payment method.
               type: string
               format: email
+    WIRE:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
     address_type:
       type: string
       enum:
@@ -465,7 +536,7 @@ components:
           type: string
           format: date
           nullable: true
-          example: '2017-07-21'
+          example: '2001-07-21'
         ssn:
           description: >-
             SSN is of principle officer within the organization. SSN length is
@@ -476,18 +547,21 @@ components:
           maxLength: 10
           example: '1234567890'
         availablePaymentMethods:
-          $ref: '#/components/schemas/payment_type'
+          type: array
+          items:
+            $ref: '#/components/schemas/payment_type'
         registeredPaymentMethods:
           description: The registered payment methods within the company.
+          type: array
           deprecated: true
-          anyOf:
-            - $ref: '#/components/schemas/ACH'
-            - $ref: '#/components/schemas/EMT'
-          discriminator:
-            propertyName: type
-            mapping:
-              ACH: '#/components/schemas/ACH'
-              EMT: '#/components/schemas/EMT'
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/ACH'
+              - $ref: '#/components/schemas/Check'
+              - $ref: '#/components/schemas/CPA'
+              - $ref: '#/components/schemas/ECheck'
+              - $ref: '#/components/schemas/EMT'
+              - $ref: '#/components/schemas/WIRE'
         address:
           description: The address associated with the subject of payment.
           $ref: '#/components/schemas/address'
