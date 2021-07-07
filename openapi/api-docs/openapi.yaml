@@ -24,6 +24,7 @@ tags:
   $ref: './tags.yaml'
 servers:
   - url: 'https://dev1.fispan.cloud'
+  - url: 'http://localhost'
 paths:
   $ref: './paths.yaml'
 components:

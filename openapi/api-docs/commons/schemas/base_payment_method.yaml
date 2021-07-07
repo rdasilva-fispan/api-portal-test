@@ -4,3 +4,6 @@ properties:
     description: Indicates if the given payment method is to be used by default.
     type: boolean
     example: true
+  bankAccount:
+    description: The bank account associated with the payment methods.
+    $ref: './bank_account.yaml'

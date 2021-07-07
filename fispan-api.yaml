@@ -32,8 +32,8 @@ tags:
   - name: Vendor
     description: Manages vendors in FI.SPAN platform.
 servers:
-  - url: 'http://localhost'
   - url: 'https://dev1.fispan.cloud'
+  - url: 'http://localhost'
 paths:
   /accounts/oauth/token:
     post:
@@ -232,6 +232,115 @@ components:
         - INTERNATIONAL_ACH
         - ECHECK
         - A2A_TRANSFER
+    erp_provider:
+      type: string
+      enum:
+        - NONE
+        - UNKNOWN
+        - DUMMY
+        - FRESHBOOKS
+        - INTACCT
+        - MYOB
+        - NAVISION
+        - NETSUITE
+        - ORACLE
+        - QUICKBOOKS
+        - QUICKBOOKS_DESKTOP
+        - SAGE50
+        - SAP
+        - MS_BUSINESS_CENTRAL
+        - MS_BUSINESS_CENTRAL_ONPREM_14
+        - TEST_ERP
+        - XERO
+        - ACUMATICA
+    erp_id:
+      type: object
+      properties:
+        id:
+          description: The internal idenification for the ERP.
+          type: string
+          example: 7029706a-40cf-4d39-a06a-5ca5eb9361da
+        erpProvider:
+          description: The erp's provider.
+          $ref: '#/components/schemas/erp_provider'
+          example: NETSUITE
+    product_type:
+      type: string
+      enum:
+        - PAYMENT
+        - RECEIVABLE
+        - LENDING
+        - BANK_ACCOUNT_INFO
+        - VALIDATION
+        - FX_INFO
+        - ENRICHMENT
+        - REMITTANCE
+    bank_account:
+      type: object
+      properties:
+        id:
+          description: The bank account identification
+          type: string
+          example: 947fed2f-ec8b-4df9-b24f-37b48667e21b
+        externalId:
+          description: Bank specific account id
+          type: string
+          nullable: true
+          required: false
+          example: bank_account_external_id
+        erpIds:
+          description: The ERP providers for the bank account
+          type: array
+          items:
+            $ref: '#/components/schemas/erp_id'
+          minItems: 0
+          example:
+            - id: 7029706a-40cf-4d39-a06a-5ca5eb9361da
+              erpProvider: NETSUITE
+        accountLabel:
+          description: A label to help identifying the account.
+          type: string
+          nullable: true
+          example: Cheque
+        accountHolderName:
+          description: >-
+            Legal entity or subsidiary name. Is used to override Client's name
+            in payables.
+          type: string
+          nullable: true
+          example: John Smith
+        bankName:
+          description: The name of the bank
+          type: string
+          nullable: true
+          example: Bank of America
+        institutionNumber:
+          description: >-
+            The number of the institution. We can also call it the bank number.
+            Required for Canadian bank accounts
+          type: string
+          nullable: true
+          example: '001'
+        transitNumber:
+          description: The branch identification. Required for Canadian bank accounts
+          type: string
+          nullable: true
+          example: '1758'
+        routingNumber:
+          description: Required for US bank accounts. This field is masked.
+          type: string
+          nullable: true
+          example: '********'
+        accountNumber:
+          description: >-
+            Required for both Canadian and US bank accounts. This field is
+            masked.
+          type: string
+          nullable: true
+          example: '******7395'
+        enabledProducts:
+          description: The products that are enabled for the given bank account.
+          $ref: '#/components/schemas/product_type'
     base_payment_method:
       type: object
       properties:
@@ -239,6 +348,20 @@ components:
           description: Indicates if the given payment method is to be used by default.
           type: boolean
           example: true
+        bankAccount:
+          description: The bank account associated with the payment methods.
+          $ref: '#/components/schemas/bank_account'
+    ach_payment_method:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
+    emt_payment_method:
+      allOf:
+        - $ref: '#/components/schemas/base_payment_method'
+        - type: object
+          properties:
+            description: The email associated with the EMT payment method.
+            email: string
+            format: email
     address_type:
       type: string
       enum:
@@ -353,7 +476,11 @@ components:
         registeredPaymentMethods:
           description: The registered payment methods within the company.
           deprecated: true
-          $ref: '#/components/schemas/base_payment_method'
+          oneOf:
+            - $ref: '#/components/schemas/ach_payment_method'
+            - $ref: '#/components/schemas/emt_payment_method'
+          discriminator:
+            propertyName: availablePaymentMethods
         address:
           description: The address associated with the subject of payment.
           $ref: '#/components/schemas/address'

@@ -37,7 +37,11 @@ properties:
   registeredPaymentMethods:
     description: The registered payment methods within the company.
     deprecated: true
-    $ref: './base_payment_method.yaml'
+    oneOf:
+      - $ref: './ach_payment_method.yaml'
+      - $ref: './emt_payment_method.yaml'
+    discriminator:
+      propertyName: availablePaymentMethods
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'
