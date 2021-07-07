@@ -14,7 +14,7 @@ properties:
   taxId:
     description: Taxation identification number for the company.
     type: string
-    nullable: string
+    nullable: true
     example: 123456789
     minLength: 9
     maxLength: 9
