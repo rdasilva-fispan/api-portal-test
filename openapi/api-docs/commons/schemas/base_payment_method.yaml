@@ -1,9 +1,12 @@
 type: object
 properties:
+  type:
+    description: The type of the payment.
+    type: string
+    example: ACH
   default:
     description: Indicates if the given payment method is to be used by default.
     type: boolean
     example: true
   bankAccount:
-    description: The bank account associated with the payment methods.
     $ref: './bank_account.yaml'

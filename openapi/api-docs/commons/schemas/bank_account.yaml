@@ -1,4 +1,5 @@
 type: object
+description: The bank account associated with the payment methods.
 properties:
   id:
     description: The bank account identification

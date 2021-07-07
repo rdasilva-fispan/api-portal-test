@@ -32,16 +32,18 @@ properties:
     maxLength: 10
     example: '1234567890'
   availablePaymentMethods:
-    description: The possible available payment methods.
     $ref: './payment_type.yaml'
   registeredPaymentMethods:
     description: The registered payment methods within the company.
     deprecated: true
-    oneOf:
+    anyOf:
       - $ref: './ACH.yaml'
       - $ref: './EMT.yaml'
     discriminator:
-      propertyName: availablePaymentMethods
+      propertyName: type
+      mapping:
+        ACH: './ACH.yaml'
+        EMT: './EMT.yaml'
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'

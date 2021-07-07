@@ -232,6 +232,7 @@ components:
         - INTERNATIONAL_ACH
         - ECHECK
         - A2A_TRANSFER
+      description: The possible available payment methods.
     erp_provider:
       type: string
       enum:
@@ -277,6 +278,7 @@ components:
         - REMITTANCE
     bank_account:
       type: object
+      description: The bank account associated with the payment methods.
       properties:
         id:
           description: The bank account identification
@@ -286,7 +288,6 @@ components:
           description: Bank specific account id
           type: string
           nullable: true
-          required: false
           example: bank_account_external_id
         erpIds:
           description: The ERP providers for the bank account
@@ -344,17 +345,20 @@ components:
     base_payment_method:
       type: object
       properties:
+        type:
+          description: The type of the payment.
+          type: string
+          example: ACH
         default:
           description: Indicates if the given payment method is to be used by default.
           type: boolean
           example: true
         bankAccount:
-          description: The bank account associated with the payment methods.
           $ref: '#/components/schemas/bank_account'
-    ach_payment_method:
+    ACH:
       allOf:
         - $ref: '#/components/schemas/base_payment_method'
-    emt_payment_method:
+    EMT:
       allOf:
         - $ref: '#/components/schemas/base_payment_method'
         - type: object
@@ -472,19 +476,18 @@ components:
           maxLength: 10
           example: '1234567890'
         availablePaymentMethods:
-          description: The possible available payment methods.
           $ref: '#/components/schemas/payment_type'
         registeredPaymentMethods:
           description: The registered payment methods within the company.
           deprecated: true
-          oneOf:
-            - $ref: '#/components/schemas/ach_payment_method'
-            - $ref: '#/components/schemas/emt_payment_method'
+          anyOf:
+            - $ref: '#/components/schemas/ACH'
+            - $ref: '#/components/schemas/EMT'
           discriminator:
-            propertyName: availablePaymentMethods
+            propertyName: type
             mapping:
-              ACH: '#/components/schemas/ach_payment_method'
-              EMT: '#/components/schemas/emt_payment_method'
+              ACH: '#/components/schemas/ACH'
+              EMT: '#/components/schemas/EMT'
         address:
           description: The address associated with the subject of payment.
           $ref: '#/components/schemas/address'
