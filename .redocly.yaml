@@ -13,7 +13,9 @@ referenceDocs:
         main: "#32329f"
     typography:
       heading1:
-        lineHeight: 15px
+        lineHeight: 10px
+      fieldName:
+        lineHeight: 10px
   generateCodeSamples:
     languages:
       - lang: "curl"
