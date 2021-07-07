@@ -2,6 +2,7 @@ allOf:
   - $ref: './base_payment_method.yaml'
   - type: object
     properties:
-      description: The email associated with the EMT payment method.
-      email: string
-      format: email
+      email:
+        description: The email associated with the EMT payment method.
+        type: string
+        format: email

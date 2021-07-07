@@ -359,9 +359,10 @@ components:
         - $ref: '#/components/schemas/base_payment_method'
         - type: object
           properties:
-            description: The email associated with the EMT payment method.
-            email: string
-            format: email
+            email:
+              description: The email associated with the EMT payment method.
+              type: string
+              format: email
     address_type:
       type: string
       enum:
@@ -481,6 +482,9 @@ components:
             - $ref: '#/components/schemas/emt_payment_method'
           discriminator:
             propertyName: availablePaymentMethods
+            mapping:
+              ACH: '#/components/schemas/ach_payment_method'
+              EMT: '#/components/schemas/emt_payment_method'
         address:
           description: The address associated with the subject of payment.
           $ref: '#/components/schemas/address'

@@ -42,6 +42,9 @@ properties:
       - $ref: './emt_payment_method.yaml'
     discriminator:
       propertyName: availablePaymentMethods
+      mapping:
+        ACH: './ach_payment_method.yaml'
+        EMT: './emt_payment_method.yaml'
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'
