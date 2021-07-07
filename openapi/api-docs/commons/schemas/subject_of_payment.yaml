@@ -23,7 +23,7 @@ properties:
     type: string
     format: date
     nullable: true
-    example: '2017-07-21'
+    example: '2001-07-21'
   ssn:
     description: SSN is of principle officer within the organization. SSN length is either 4 or 10 characters long
     type: string
@@ -32,17 +32,21 @@ properties:
     maxLength: 10
     example: '1234567890'
   availablePaymentMethods:
-    $ref: './payment_type.yaml'
+    type: array
+    items:
+      $ref: './payment_type.yaml'
   registeredPaymentMethods:
     description: The registered payment methods within the company.
+    type: array
     deprecated: true
-    oneOf:
-      - $ref: './payment_methods/ACH.yaml'
-      - $ref: './payment_methods/Check.yaml'
-      - $ref: './payment_methods/CPA.yaml'
-      - $ref: './payment_methods/ECheck.yaml'
-      - $ref: './payment_methods/EMT.yaml'
-      - $ref: './payment_methods/WIRE.yaml'
+    items:
+      anyOf:
+        - $ref: './payment_methods/ACH.yaml'
+        - $ref: './payment_methods/Check.yaml'
+        - $ref: './payment_methods/CPA.yaml'
+        - $ref: './payment_methods/ECheck.yaml'
+        - $ref: './payment_methods/EMT.yaml'
+        - $ref: './payment_methods/WIRE.yaml'
   address:
     description: The address associated with the subject of payment.
     $ref: './address.yaml'

@@ -22,5 +22,53 @@ get:
           schema:
             $ref: "../responses/array_of_vendors.yaml"
           example:
-            id: c9802206-1785-43a4-97e5-aaa3e69651f8
-            externalId: null
+            - id: c9802206-1785-43a4-97e5-aaa3e69651f8
+              externalId: null
+              subjectOfPayment:
+                externalId: vendor_external_id
+                type: INDIVIDUAL
+                taxId: 123456789
+                principleOfficerDoB: '2001-07-21'
+                ssn: '1234567890'
+                availablePaymentMethods:
+                  - ECHECK
+                  - ACH
+                registeredPaymentMethods:
+                  - type: ECheck
+                    default: true
+                    bankAccount:
+                      id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
+                      externalId: null
+                      institutionNumber: '001'
+                      transitNumber: '17895'
+                      accountNumber: '3258974'
+                      enabledProducts:
+                        - PAYMENT
+                        - RECEIVABLE
+                        - REMITTANCE
+                    email: email@email.com
+                    name: Contact Name
+                  - type: ACH
+                    default: false
+                    bankAccount:
+                      id: 947fed2f-ec8b-4df9-b24f-37b48667e21b
+                      externalId: null
+                      institutionNumber: '001'
+                      transitNumber: '17895'
+                      accountNumber: '3258974'
+                      enabledProducts:
+                        - PAYMENT
+                        - RECEIVABLE
+                        - REMITTANCE
+                address:
+                  externalId: null
+                  streetName: Main Avenue
+                  streetNumber: '125'
+                  city: New York
+                  stateProvince: NY
+                  country: United States of America
+                  postalCode: '95625'
+                  line2: Close to Burger King
+                  defaultFor:
+                    - ECheck
+                    - ACH
