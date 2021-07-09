@@ -4,6 +4,7 @@ schema:
   type: integer
   minimum: 1
   multipleOf: 1
+  default: 20
 required: false
 description: |-
   The number of records retrieved per page. Defaults to 20 and goes up to 1000, even if
