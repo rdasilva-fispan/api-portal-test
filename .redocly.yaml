@@ -9,8 +9,20 @@ referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
   theme:
     colors:
+      accent:
+        main: "#028c6a"
+        light: "#d6d6eb"
+        dark: "#014635"
+        contrastText: "#80c5b4"
       primary:
         main: "#32329f"
+        light: "#80c5b4"
+        dark: "#14143f"
+        contrastText: "#eaeaf5"
+      secondary:
+        main: "#f59a44"
+        light: "#fce0c6"
+        contrastText: "#fbd6b4"
     typography:
       heading1:
         lineHeight: 10px
