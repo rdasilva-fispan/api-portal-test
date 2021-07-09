@@ -10,7 +10,7 @@ referenceDocs:
   theme:
     colors:
       text:
-        primary: "#257bff"
+        secondary: "#257bff"
   generateCodeSamples:
     languages:
       - lang: "curl"
