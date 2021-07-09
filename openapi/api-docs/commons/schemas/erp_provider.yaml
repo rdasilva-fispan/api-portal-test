@@ -19,3 +19,5 @@ enum: [
   XERO,
   ACUMATICA
 ]
+description: The erp's provider.
+example: NETSUITE

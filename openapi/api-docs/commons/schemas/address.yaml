@@ -1,4 +1,6 @@
 type: object
+description: The address associated with the subject of payment.
+deprecated: true
 properties:
   externalId:
     description: The external identification for the address.
@@ -60,3 +62,15 @@ properties:
       $ref: './payment_type.yaml'
     minItems: 0
     maxItems: 14
+example:
+  externalId: null
+  streetName: Main Avenue
+  streetNumber: 125
+  city: New York
+  stateProvince: NY
+  country: United States of America
+  postalCode: '95825'
+  line1: null
+  line2: Suite 501
+  types: []
+  defaultFor: [ACH]

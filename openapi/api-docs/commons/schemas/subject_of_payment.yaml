@@ -48,20 +48,5 @@ properties:
         - $ref: './payment_methods/EMT.yaml'
         - $ref: './payment_methods/WIRE.yaml'
   address:
-    description: The address associated with the subject of payment.
     $ref: './address.yaml'
-    deprecated: true
-    example:
-      externalId: null
-      streetName: Main Avenue
-      streetNumber: 125
-      city: New York
-      stateProvince: NY
-      country: United States of America
-      postalCode: '95825'
-      line1: null
-      line2: Suite 501
-      types: []
-      defaultFor: [ACH]
-
   
