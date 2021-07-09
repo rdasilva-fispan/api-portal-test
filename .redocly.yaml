@@ -10,7 +10,7 @@ referenceDocs:
   theme:
     colors:
       primary:
-        contrastText: "#32329f"
+        main: "#32329f"
     typography:
       heading1:
         lineHeight: 10px
