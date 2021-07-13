@@ -44,7 +44,7 @@ properties:
     deprecated: true
     example: Suite 501
   line2:
-    description: The line 1 for the address.
+    description: The line 2 for the address.
     type: string
     nullable: true   
     example: Close to the Burger King

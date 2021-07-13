@@ -7,10 +7,12 @@ lint:
     no-unused-components: warning
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
-  # theme:
-  #   colors:
-  #     text:
-  #       secondary: "#257bff"
+  theme:
+    typography:
+      heading1:
+        color: "#191847"
+      heading2:
+        color: "#194782"
   generateCodeSamples:
     languages:
       - lang: "curl"
