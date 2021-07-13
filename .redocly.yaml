@@ -9,6 +9,7 @@ referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
   theme:
     typography:
+      fontFamily: Verdana
       heading1:
         color: "#191847"
       heading2:
