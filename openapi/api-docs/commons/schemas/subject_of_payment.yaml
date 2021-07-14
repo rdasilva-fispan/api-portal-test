@@ -47,6 +47,8 @@ properties:
         - $ref: './payment_methods/ECheck.yaml'
         - $ref: './payment_methods/EMT.yaml'
         - $ref: './payment_methods/WIRE.yaml'
+      discriminator:
+        propertyName: type
   address:
     $ref: './address.yaml'
   
