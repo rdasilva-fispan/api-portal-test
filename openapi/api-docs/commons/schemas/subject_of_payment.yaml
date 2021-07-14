@@ -40,7 +40,7 @@ properties:
     type: array
     deprecated: true
     items:
-      oneOf:
+      anyOf:
         - $ref: './payment_methods/ACH.yaml'
         - $ref: './payment_methods/Check.yaml'
         - $ref: './payment_methods/CPA.yaml'
