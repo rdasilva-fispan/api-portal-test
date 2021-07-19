@@ -8,7 +8,7 @@ properties:
     example: c9802206-1785-43a4-97e5-aaa3e69651f8
   externalId:
     description: The vendor's external identification.
-    type: ['null', string]
+    type: string
     example: "vendor_external_id"
   subjectOfPayment:
     $ref: './subject_of_payment.yaml'

@@ -7,7 +7,7 @@ properties:
     example: 947fed2f-ec8b-4df9-b24f-37b48667e21b
   externalId:
     description: Bank specific account id
-    type: ['null', string]
+    type: string
     example: "bank_account_external_id"
   erpIds:
     description: The ERP providers for the bank account
@@ -20,31 +20,31 @@ properties:
         erpProvider: NETSUITE
   accountLabel:
     description: A label to help identifying the account.
-    type: ['null', string]
+    type: string
     example: Cheque
   accountHolderName:
     description: Legal entity or subsidiary name. Is used to override Client's name in payables.
-    type: ['null', string]
+    type: string
     example: John Smith
   bankName:
     description: The name of the bank
-    type: ['null', string]
+    type: string
     example: Bank of America
   institutionNumber:
     description: The number of the institution. We can also call it the bank number. Required for Canadian bank accounts
-    type: ['null', string]
+    type: string
     example: '001'
   transitNumber:
     description: The branch identification. Required for Canadian bank accounts
-    type: ['null', string]
+    type: string
     example: '1758'
   routingNumber:
     description: Required for US bank accounts. This field is masked.
-    type: ['null', string]
+    type: string
     example: '********'
   accountNumber:
     description: Required for both Canadian and US bank accounts. This field is masked.
-    type: ['null', string]
+    type: string
     example: '******7395'
   enabledProducts:
     description: The products that are enabled for the given bank account.
