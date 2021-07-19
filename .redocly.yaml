@@ -9,7 +9,7 @@ referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
   theme:
     typography:
-      fontFamily: Verdana
+      fontFamily: Neue Helvetica
       heading1:
         color: "#2f2f59"
       heading2:
