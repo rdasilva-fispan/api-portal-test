@@ -1,5 +1,6 @@
 portal:
+  - page: developer-portal/index.md
   - group: FI.SPAN API Reference
     expanded: false
     pages:
-      - page: .redocly.yaml/*
+      - page: openapi/reference.page.yaml/*

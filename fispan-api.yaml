@@ -399,6 +399,13 @@ components:
         type:
           description: The type of the payment.
           type: string
+          enum:
+            - ACH
+            - Check
+            - CPA
+            - ECheck
+            - EMT
+            - WIRE
           example: ACH
         default:
           description: Indicates if the given payment method is to be used by default.
@@ -439,6 +446,17 @@ components:
     WIRE:
       allOf:
         - $ref: '#/components/schemas/base_payment_method'
+    payment_method:
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/ACH'
+        - $ref: '#/components/schemas/Check'
+        - $ref: '#/components/schemas/CPA'
+        - $ref: '#/components/schemas/ECheck'
+        - $ref: '#/components/schemas/EMT'
+        - $ref: '#/components/schemas/WIRE'
+      discriminator:
+        propertyName: type
     address_type:
       type: string
       enum:
@@ -571,13 +589,7 @@ components:
           type: array
           deprecated: true
           items:
-            oneOf:
-              - $ref: '#/components/schemas/ACH'
-              - $ref: '#/components/schemas/Check'
-              - $ref: '#/components/schemas/CPA'
-              - $ref: '#/components/schemas/ECheck'
-              - $ref: '#/components/schemas/EMT'
-              - $ref: '#/components/schemas/WIRE'
+            $ref: '#/components/schemas/payment_method'
         address:
           $ref: '#/components/schemas/address'
     vendor:

@@ -40,13 +40,7 @@ properties:
     type: array
     deprecated: true
     items:
-      oneOf:
-        - $ref: './payment_methods/ACH.yaml'
-        - $ref: './payment_methods/Check.yaml'
-        - $ref: './payment_methods/CPA.yaml'
-        - $ref: './payment_methods/ECheck.yaml'
-        - $ref: './payment_methods/EMT.yaml'
-        - $ref: './payment_methods/WIRE.yaml'
+      $ref: './payment_methods/payment_method.yaml'
   address:
     $ref: './address.yaml'
   

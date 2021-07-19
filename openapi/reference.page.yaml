@@ -1,0 +1,11 @@
+type: reference-docs
+definitionId: fispan-api
+settings:
+  generateCodeSamples:
+    languages:
+      - lang: "curl"
+      - lang: "C#"
+      - lang: "Java"
+      - lang: "JavaScript"
+      - lang: "Node.js"
+      - lang: "Python"

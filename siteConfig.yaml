@@ -6,7 +6,7 @@ meta:
 logo: ./images/logo.png
 enableToc: true
 oasDefinitions:
-  petstore: ./.redocly.yaml
+  fispan-api: ./fispan-api.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700

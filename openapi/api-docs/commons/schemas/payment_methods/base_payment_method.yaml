@@ -3,6 +3,7 @@ properties:
   type:
     description: The type of the payment.
     type: string
+    enum: [ACH,Check,CPA,ECheck,EMT,WIRE]
     example: ACH
   default:
     description: Indicates if the given payment method is to be used by default.

@@ -1,0 +1,10 @@
+type: object
+oneOf:
+  - $ref: './ACH.yaml'
+  - $ref: './Check.yaml'
+  - $ref: './CPA.yaml'
+  - $ref: './ECheck.yaml'
+  - $ref: './EMT.yaml'
+  - $ref: './WIRE.yaml'
+discriminator:
+  propertyName: type
