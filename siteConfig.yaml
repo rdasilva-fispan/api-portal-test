@@ -1,0 +1,55 @@
+meta:
+  title: FI.SPAN Developer Portal
+  description: FI.SPAN developer portal to make developer experience incredible.
+  siteUrl: https://fispan.com/
+  keywords: fispan developer portal, fispan api portal, fispan api reference docs
+logo: ./images/logo.png
+enableToc: true
+oasDefinitions:
+  petstore: ./.redocly.yaml
+  # add links to definitions in our API registry by using a fully qualified URL.
+stylesheets:
+  - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700
+  - https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap
+#ga:
+  # you can use any options here from https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
+  # note that GA doesn't work in DEV
+#  trackingId: UA-45997213-1
+#scripts:
+#  - ./static/intercom.js
+nav:
+
+  - label: FI.SPAN
+    href: https://fispan.com/
+
+  - search: true
+
+footer:
+  copyrightText: Copyright © FI.SPAN 2016-2021. All right reserved.
+  columns:
+    - group: Home
+      items:
+        - label: Platform
+          href: 'https://fispan.com/embedded-banking/'
+        - label: Blog
+          href: 'https://blog.fispan.com'
+        - label: Cookie Notice
+          href: 'https://fispan.com/fispan/book-demo/'
+    - group: Company
+      items:
+        - label: About
+          href: 'https://fispan.com/about/'
+        - label: News
+          href: 'https://fispan.com/fispan/news/'
+        - label: Carrers
+          href: 'https://fispan.com/carrers/'
+    - group: Resources
+      items:
+        - label: Videos
+          href: 'https://fispan.com/videos/'
+        - label: Case Study
+          href: 'https://fispan.com/case-study/'
+        - label: Webinars
+          href: 'https://fispan.com/webinars/'
+        - label: Whitepapers
+          href: 'https://fispan.com/whitepapers/'

@@ -1,0 +1,5 @@
+portal:
+  - group: FI.SPAN API Reference
+    expanded: false
+    pages:
+      - page: .redocly.yaml/*

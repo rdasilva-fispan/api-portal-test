@@ -571,15 +571,13 @@ components:
           type: array
           deprecated: true
           items:
-            anyOf:
+            oneOf:
               - $ref: '#/components/schemas/ACH'
               - $ref: '#/components/schemas/Check'
               - $ref: '#/components/schemas/CPA'
               - $ref: '#/components/schemas/ECheck'
               - $ref: '#/components/schemas/EMT'
               - $ref: '#/components/schemas/WIRE'
-            discriminator:
-              propertyName: type
         address:
           $ref: '#/components/schemas/address'
     vendor:

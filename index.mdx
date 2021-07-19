@@ -1,0 +1,30 @@
+---
+title: FI.SPAN API Portal
+---
+
+import { LandingLayout } from '@redocly/ui';
+
+import {
+  Button,
+  Box,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  H1,
+  H2,
+  SectionHeader,
+} from '@redocly/ui';
+
+<Jumbotron>
+  <NavBar location={props.location} standalone={false} />
+  <H1>FI.SPAN Developer Portal</H1>
+  <H2>Developer portal to help on integration with FI.SPAN APIs</H2>
+  <Flex p={20} justifyContent="center">
+    <Button inversed transparent large to="developer-portal/index.md">
+      Get started
+    </Button>
+  </Flex>
+</Jumbotron>
