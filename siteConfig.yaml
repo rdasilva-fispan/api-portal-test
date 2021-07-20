@@ -3,7 +3,7 @@ meta:
   description: FI.SPAN developer portal to make developer experience incredible.
   siteUrl: https://fispan.com/
   keywords: fispan developer portal, fispan api portal, fispan api reference docs
-logo: ./images/logo.png
+logo:
 enableToc: true
 oasDefinitions:
   fispan-api: ./fispan-api.yaml
@@ -19,9 +19,12 @@ stylesheets:
 #  - ./static/intercom.js
 nav:
 
-  - label: FI.SPAN
-    href: https://fispan.com/
-
+  - label: Platform
+    href: https://fispan.com/embedded-banking/
+  - label: Partners
+    href: https://fispan.com/partners/
+  - label: Corporate Users
+    href: https://fispan.com/corporate-users/
   - search: true
 
 footer:

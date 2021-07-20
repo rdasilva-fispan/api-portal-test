@@ -15,7 +15,7 @@ export const theme = {
   colors: {
     // tonalOffset: 0.2,
     primary: {
-      main: '#227a88',
+      main: '#194782',
       // light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
       // dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
       // contrastText: ({ colors }) => readableColor(colors.primary.main),
@@ -82,14 +82,14 @@ export const theme = {
       head: '#c167e4',
     },
     // navbar: {
-    //   main: ({ colors }) => colors.primary.main,
-    //   gradient: ({ colors }) => darken(colors.tonalOffset / 2, colors.navbar.main),
-    //   contrastText: 'white'
+    //  main: 'white',
+    //  gradient: 'white',
+    //  contrastText: ({ colors }) => colors.primary.main
     // },
     // footer: {
       // main: ({ colors }) => colors.primary.main,
       // contrastText: 'white'
-    // },
+    //},
   },
 
   sidebar: {
@@ -106,10 +106,10 @@ export const theme = {
     fontWeightRegular: '400',
     fontWeightBold: '600',
     fontWeightLight: '300',
-    fontFamily: '"Source Sans Pro", sans-serif',
+    fontFamily: '"work sans", "Source Sans Pro", sans-serif',
     headings: {
-      fontFamily: '"Source Sans Pro", sans-serif',
-      fontWeight: '600',
+      fontFamily: '"work sans", "Source Sans Pro", sans-serif',
+      fontWeight: '800',
     },
     // heading1: {
     //   fontSize: '1.85714em',

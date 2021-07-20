@@ -15,20 +15,39 @@ import {
   Emphasis,
   H1,
   H2,
+  Typography,
   SectionHeader,
 } from '@redocly/ui';
 
 import { NavBar } from '@redocly/ui';
+import jumbotronBg from './developer-portal/images/Embedded-Finance--1170x568.png'
 
 export default LandingLayout;
 
-<Jumbotron>
+<Jumbotron parallaxEffect bgImage={jumbotronBg}>
   <NavBar location={props.location} standalone={false} />
-  <H1>FI.SPAN Developer Portal</H1>
+  <H1><a href="https://fispan.com">FI.SPAN</a> Developer Portal</H1>
   <H2>Developer portal to help on integration with FI.SPAN APIs</H2>
   <Flex p={20} justifyContent="center">
-    <Button inversed transparent large to="developer-portal/index.md">
-      Api Docs
+    <Button large color="#d92553" to="developer-portal/index.mdx">
+      API Reference
     </Button>
   </Flex>
 </Jumbotron>
+<Box mt={15} mx={200} mb={100}>
+    <SectionHeader>
+        <Emphasis><H1 color="#191847">The Future Of Commercial Banking Is Integrated</H1></Emphasis>
+        <Typography fontSize="22px">
+            FISPAN makes it simple for banks to remove friction and provide the banking experience of the future to commercial clients.
+            We turn banking services into branded banking experiences embedded within the ERP and accounting software your clients rely on to run their business.
+        </Typography>
+    </SectionHeader>
+    <Flex justifyContent="center">
+        <Button large color="#d92553" to="https://fispan.com/partners">
+            PARTNER WITH US
+        </Button>
+        <Button transparent large to="https://fispan.com/embedded-banking">
+            LEARN MORE
+        </Button>
+    </Flex>
+</Box>

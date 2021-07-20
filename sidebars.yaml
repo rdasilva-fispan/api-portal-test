@@ -1,5 +1,5 @@
 portal:
-  - page: developer-portal/index.md
+  - page: developer-portal/index.mdx
   - group: FI.SPAN API Reference
     expanded: false
     pages:

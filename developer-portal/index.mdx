@@ -1,0 +1,43 @@
+---
+title: Introduction to FI.SPAN
+---
+
+import {
+  Button,
+  Box,
+  FlexSection,
+  Flex,
+  Jumbotron,
+  ThinTile,
+  WideTile,
+  Emphasis,
+  H1,
+  H2,
+  Typography,
+  SectionHeader,
+} from '@redocly/ui';
+
+import image from './images/About-Header-img@2x-1.png'
+
+<Box my={25} p={0}>
+    <Flex flexWrap="wrap">
+        <Box width="50%">
+            <SectionHeader>
+                <Emphasis><H1 color="#191847">Building business banking experiences for the future</H1></Emphasis>
+            </SectionHeader>
+            <Typography fontSize="20px" fontWeight="100">
+                FISPAN’s goal is to help banks easily connect with their corporate clients. 
+                We’ll help you deliver a differentiated, customer-centric banking experience directly into the place your customers manage their business: 
+                the ERP/accounting system. Contact us to learn about how we can help you with your business banking challenges.
+            </Typography>
+            <br/>
+            <br/>
+            <Button large color="#d92553" to="https://fispan.com/contact-us/">
+                CONTACT US
+            </Button>
+        </Box>
+        <Box width="50%">
+            <img src={image}/>
+        </Box>
+    </Flex>
+</Box>
