@@ -26,7 +26,7 @@ servers:
   - url: 'https://dev1.fispan.cloud'
   - url: 'http://localhost'
 paths:
-  $ref: '{{process.env.PATHS_FILE}}''
+  $ref: '{{process.env.PATHS_FILE}}'
 components:
   securitySchemes:
     $ref: './security_schemes.yaml'
