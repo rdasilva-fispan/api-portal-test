@@ -2,6 +2,3 @@
 
 '/accounts/oauth/token':
     $ref: 'paths/accounts_oauth_token.yaml'
-
-'/api/config-api/vendors':
-    $ref: 'paths/api_config_api_vendors.yaml'
