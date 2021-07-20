@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   version: 1.0.0
   title: fispan.com
@@ -26,7 +26,7 @@ servers:
   - url: 'https://dev1.fispan.cloud'
   - url: 'http://localhost'
 paths:
-  $ref: '{{process.env.PATHS_FILE}}'
+  $ref: {{process.env.PATHS_FILE}}
 components:
   securitySchemes:
     $ref: './security_schemes.yaml'
