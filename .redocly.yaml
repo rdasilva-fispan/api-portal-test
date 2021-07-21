@@ -6,7 +6,7 @@ lint:
   rules:
     no-unused-components: warning
   plugins:
-    - './plugins/allow-bank-plugin.js'
+    - './openapi/api-docs/plugins/allow-bank-plugin.js'
   decorators:
     allow-bank/allow-path-for-bank: error
 
