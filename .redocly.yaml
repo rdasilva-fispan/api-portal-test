@@ -5,6 +5,11 @@ lint:
     - recommended
   rules:
     no-unused-components: warning
+  plugins:
+    - './plugins/allow-bank-plugin.js'
+  decorators:
+    allow-bank/allow-path-for-bank: error
+
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
   theme:

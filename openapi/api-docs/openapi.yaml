@@ -12,7 +12,7 @@ info:
   x-logo:
     url: 'https://fispan.com/wp-content/uploads/2019/09/Screenshot.png'
   description: 
-    $ref: './commons/description.md'
+    $ref: './components/description.md'
 x-tagGroups:
   - name: Authentication
     tags:
@@ -26,7 +26,7 @@ servers:
   - url: 'https://dev1.fispan.cloud'
   - url: 'http://localhost'
 paths:
-  $ref: {{process.env.PATHS_FILE}}
+  $ref: './paths.yaml'
 components:
   securitySchemes:
-    $ref: './security_schemes.yaml'
+    $ref: './components/securitySchemes/security_schemes.yaml'

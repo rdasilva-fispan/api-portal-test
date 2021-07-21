@@ -1,4 +1,0 @@
-# yamllint disable rule:line-length
-
-'/accounts/oauth/token':
-    $ref: 'paths/accounts_oauth_token.yaml'
