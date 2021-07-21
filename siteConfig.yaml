@@ -6,7 +6,7 @@ meta:
 logo:
 enableToc: true
 oasDefinitions:
-  fispan-api: ./fispan-api.yaml
+  fispan-api: ./openapi/api-docs/openapi.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700
