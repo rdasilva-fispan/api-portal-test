@@ -7,4 +7,5 @@
 
 '/api/config-api/vendors':
     x-fispan: true
+    x-bank: false
     $ref: 'paths/api_config_api_vendors.yaml'
