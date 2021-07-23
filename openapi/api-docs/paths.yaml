@@ -1,10 +1,8 @@
 # yamllint disable rule:line-length
 
 '/accounts/oauth/token':
-    x-bank: true
-    x-fispan: true
     $ref: 'paths/accounts_oauth_token.yaml'
 
 '/api/config-api/vendors':
-    x-fispan: true
+    x-bank: true
     $ref: 'paths/api_config_api_vendors.yaml'
