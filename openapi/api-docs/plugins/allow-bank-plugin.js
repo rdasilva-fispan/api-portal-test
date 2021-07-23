@@ -7,7 +7,7 @@ const decorators = {
             return {
                 PathItem: {
                     leave(pathItem, ctx) {
-                        if (!pathItem[process.env.ALLOW_BANK_FLAG_NAME]) {
+                        if (pathItem[process.env.ALLOW_BANK_FLAG_NAME]) {
                             delete ctx.parent[ctx.key];
                         }
                     }
