@@ -8,7 +8,7 @@ lint:
   plugins:
     - './openapi/api-docs/plugins/disallow-bank-plugin.js'
   decorators:
-    disallow-bank/allow-path-for-bank: error
+    disallow-bank/disallow-path-for-bank: error
 
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
