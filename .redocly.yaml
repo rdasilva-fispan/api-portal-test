@@ -5,10 +5,10 @@ lint:
     - recommended
   rules:
     no-unused-components: warning
-  #plugins:
-  #  - './openapi/api-docs/plugins/disallow-bank-plugin.js'
-  #decorators:
-  #  disallow-bank/disallow-path-for-bank: error
+  plugins:
+    - './openapi/api-docs/plugins/disallow-bank-plugin.js'
+  decorators:
+    disallow-bank/disallow-path-for-bank: error
 
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
