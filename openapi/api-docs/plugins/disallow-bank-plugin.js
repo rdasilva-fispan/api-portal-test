@@ -48,7 +48,7 @@ const decorators = {
                             root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => {
                                 xTag['tags'].filter((tag) => {
                                     tagsToRemove.has(tag)
-                                }).length > 0
+                                }).length == 0
                             })
                         }
                     }
