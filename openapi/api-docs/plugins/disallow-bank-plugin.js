@@ -18,7 +18,7 @@ const decorators = {
                         // delete any operations inside of a path marked with x-internal
                         const operations = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
                         for (const operation of operations) {
-                            if (deletePath) {
+                            if (deletePath && pathItem[operation]) {
                                 tagsToRemove.add(pathItem[operation].tags || []);
                             }
 
