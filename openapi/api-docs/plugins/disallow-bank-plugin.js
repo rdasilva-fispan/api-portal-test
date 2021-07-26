@@ -45,11 +45,7 @@ const decorators = {
                         // }
 
                         if (root['x-tagGroups']) {
-                            root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => {
-                                xTag['tags'].filter((tag) => {
-                                    tagsToRemove.has(tag)
-                                }).length == 0
-                            })
+                            root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => xTag['tags'].filter((tag) => tagsToRemove.has(tag)).length == 0)
                         }
                     }
                 }
