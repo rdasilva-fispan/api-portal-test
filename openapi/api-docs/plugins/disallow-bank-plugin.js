@@ -44,18 +44,18 @@ const decorators = {
                             root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
                         }
 
-                        if (root['x-tagGroups']) {
-                            root['x-tagGroups'] = root['x-tagGroups'].filter((xTag) => {
-                                if (xTag['tags']) {
-                                    for (const tag of xTag['tags']) {
-                                        if (tagsToRemove.has(tag['name'])) {
-                                            return true;
-                                        }
-                                    }
-                                }
-                                return false;
-                            });
-                        }
+                        // if (root['x-tagGroups']) {
+                        //     root['x-tagGroups'] = root['x-tagGroups'].filter((xTag) => {
+                        //         if (xTag['tags']) {
+                        //             for (const tag of xTag['tags']) {
+                        //                 if (tagsToRemove.has(tag['name'])) {
+                        //                     return true;
+                        //                 }
+                        //             }
+                        //         }
+                        //         return false;
+                        //     });
+                        // }
                     }
                 }
             }
