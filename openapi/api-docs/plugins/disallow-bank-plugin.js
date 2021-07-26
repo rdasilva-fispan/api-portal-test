@@ -40,7 +40,22 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
-                        root.tags = root.tags.filter((tag) => tagsToRemove.has(tag.name));
+                        if (root['tags']) {
+                            root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
+                        }
+
+                        if (root['x-tagGroups']) {
+                            root['x-tagGroups'] = root['x-tagGroups'].filter((xTag) => {
+                                if (xTag['tags']) {
+                                    for (const tag of sTag['tags']) {
+                                        if (tagsToRemove.has(xTag[tags])) {
+                                            return true;
+                                        }
+                                    }
+                                }
+                                return false;
+                            });
+                        }
                     }
                 }
             }
