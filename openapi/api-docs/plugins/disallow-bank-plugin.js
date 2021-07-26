@@ -19,7 +19,6 @@ const decorators = {
                         const operations = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
                         for (const operation of operations) {
                             if (deletePath && pathItem[operation]) {
-                                console.log(`Adding tags ${pathItem[operation].tags}`);
                                 tagsToRemove.add(pathItem[operation].tags);
                             }
 
@@ -41,9 +40,9 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
-                        if (root['tags']) {
-                            root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
-                        }
+                        // if (root['tags']) {
+                        //     root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
+                        // }
 
                         if (root['x-tagGroups']) {
                             root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => {
