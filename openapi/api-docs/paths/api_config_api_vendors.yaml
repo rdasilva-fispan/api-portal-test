@@ -1,3 +1,4 @@
+x-bank: true
 get:
   tags:
     - Vendor
