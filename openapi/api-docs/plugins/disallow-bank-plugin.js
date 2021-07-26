@@ -19,7 +19,9 @@ const decorators = {
                         const operations = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
                         for (const operation of operations) {
                             if (deletePath && pathItem[operation]) {
-                                // tagsToRemove.add(pathItem[operation].tags || []);
+                                for (const tag of pathItem[operation].tags) {
+                                    tagsToRemove.add(tag);
+                                }
                             }
 
                             if (pathItem[operation] && pathItem[operation][process.env.DISALLOW_BANK_FLAG_NAME]) {
@@ -48,7 +50,7 @@ const decorators = {
                             root['x-tagGroups'] = root['x-tagGroups'].filter((xTag) => {
                                 if (xTag['tags']) {
                                     for (const tag of xTag['tags']) {
-                                        if (tagsToRemove.has(tag['name'])) {
+                                        if (tagsToRemove.has(tag)) {
                                             return true;
                                         }
                                     }
