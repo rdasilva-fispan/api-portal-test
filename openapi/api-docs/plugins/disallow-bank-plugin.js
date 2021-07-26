@@ -47,10 +47,8 @@ const decorators = {
                         if (root['x-tagGroups']) {
                             root['x-tagGroups'] = root['x-tagGroups'].filter((xTag) => {
                                 if (xTag['tags']) {
-                                    for (const tag of xTag['tags']) {
-                                        if (tagsToRemove.has(tag)) {
-                                            return true;
-                                        }
+                                    if (tagsToRemove.has(xTag['tags'])) {
+                                        return true;
                                     }
                                 }
                                 return false;
