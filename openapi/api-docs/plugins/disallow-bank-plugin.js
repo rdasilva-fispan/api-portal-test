@@ -40,9 +40,9 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
-                        // if (root['tags']) {
-                        //     root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
-                        // }
+                        if (root['tags']) {
+                            root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
+                        }
 
                         if (root['x-tagGroups']) {
                             root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => xTag['tags'].filter((tag) => tagsToRemove.has(tag)).length == 0)
