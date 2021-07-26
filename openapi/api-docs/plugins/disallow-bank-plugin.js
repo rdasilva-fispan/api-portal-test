@@ -48,7 +48,7 @@ const decorators = {
                             const xTagGroups = [];
                             root["x-tagGroups"].forEach((xTag) => {
                                 xTag['tags'].forEach((tag) => {
-                                    if (root['tags'].includes(tag)) {
+                                    if (!tagsToRemove.has(tag)) {
                                         xTagGroups.push(xTag);
                                     }
                                 });
