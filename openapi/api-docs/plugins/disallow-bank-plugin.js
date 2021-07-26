@@ -8,6 +8,7 @@ const decorators = {
                 PathItem: {
                     leave(pathItem, ctx) {
                         if (pathItem[process.env.DISALLOW_BANK_FLAG_NAME]) {
+                            console.log("Deleting " + ctx.parent[ctx.key]);
                             delete ctx.parent[ctx.key];
                         }
 
