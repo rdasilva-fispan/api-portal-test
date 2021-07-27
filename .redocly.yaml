@@ -6,9 +6,10 @@ lint:
   rules:
     no-unused-components: warning
   plugins:
-    - './openapi/api-docs/plugins/disallow-bank-plugin.js'
+    - './openapi/api-docs/plugins/all-decorators.js'
   decorators:
-    disallow-bank/disallow-path-for-bank: error
+    decorators/disallow-paths-for-bank: error
+    decorators/change-content-for-bank: error
 
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
