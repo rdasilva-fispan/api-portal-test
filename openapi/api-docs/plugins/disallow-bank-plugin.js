@@ -40,16 +40,17 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
+                        console.log('Before...');
                         console.log(tagsToRemove);
                         console.log(root['tags']);
                         if (root['tags']) {
                             root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
                         }
+                        console.log('\nAfter...');
                         console.log(root['tags']);
                         console.log(tagsToRemove);
 
                         if (root['x-tagGroups']) {
-                            console.log(root['x-tagGroups']);
                             const xTagGroups = [];
                             root["x-tagGroups"].forEach((xTag) => {
                                 xTag['tags'].forEach((tag) => {
