@@ -40,12 +40,16 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
+                        console.log(tagsToRemove);
+                        console.log(root['tags']);
                         if (root['tags']) {
                             root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
                         }
+                        console.log(root['tags']);
+                        console.log(tagsToRemove);
 
                         if (root['x-tagGroups']) {
-                            console.warn(root['x-tagGroups']);
+                            console.log(root['x-tagGroups']);
                             const xTagGroups = [];
                             root["x-tagGroups"].forEach((xTag) => {
                                 xTag['tags'].forEach((tag) => {
@@ -54,7 +58,6 @@ const decorators = {
                                     }
                                 });
                             });
-                            console.error(xTagGroups);
                             root['x-tagGroups'] = xTagGroups;
                         }
                     },
