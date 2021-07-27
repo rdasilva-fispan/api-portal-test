@@ -41,26 +41,12 @@ const decorators = {
 
                 DefinitionRoot: {
                     leave(root) {
-                        console.log('Before...');
-                        console.log(tagsToRemove);
-                        console.log(root['tags']);
                         if (root['tags']) {
                             root['tags'] = root['tags'].filter((tag) => tagsToRemove.has(tag['name']));
                         }
-                        console.log('\nAfter...');
-                        console.log(root['tags']);
-                        console.log(tagsToRemove);
 
                         if (root['x-tagGroups']) {
-                            const xTagGroups = [];
-                            root["x-tagGroups"].forEach((xTag) => {
-                                xTag['tags'].forEach((tag) => {
-                                    if (!tagsToRemove.has(tag)) {
-                                        xTagGroups.push(xTag);
-                                    }
-                                });
-                            });
-                            root['x-tagGroups'] = xTagGroups;
+                            root['x-tagGroups'] = root["x-tagGroups"].filter((xTag) => xTag['tags'].filter((tag) => tagsToRemove.has(tag)).length == 0);
                         }
                     },
                 }
