@@ -53,6 +53,7 @@ const decorators = {
                                     }
                                 });
                             });
+                            console.log(xTagGroups);
                             root['x-tagGroups'] = xTagGroups;
                         }
                     },
