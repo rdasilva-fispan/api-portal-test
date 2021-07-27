@@ -19,7 +19,8 @@ const decorators = {
                         const operations = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
                         for (const operation of operations) {
                             if (deletePath && pathItem[operation]) {
-                                tagsToRemove.add(pathItem[operation].tags);
+                                pathItem[operation].tags.forEach((tag) => tagsToRemove.add(tag));
+                                
                             }
 
                             if (pathItem[operation] && pathItem[operation][process.env.DISALLOW_BANK_FLAG_NAME]) {
