@@ -45,6 +45,7 @@ const decorators = {
                         }
 
                         if (root['x-tagGroups']) {
+                            console.warn(root['x-tagGroups']);
                             const xTagGroups = [];
                             root["x-tagGroups"].forEach((xTag) => {
                                 xTag['tags'].forEach((tag) => {
@@ -53,7 +54,7 @@ const decorators = {
                                     }
                                 });
                             });
-                            console.log(xTagGroups);
+                            console.error(xTagGroups);
                             root['x-tagGroups'] = xTagGroups;
                         }
                     },
