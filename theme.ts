@@ -111,14 +111,14 @@ export const theme = {
       fontFamily: '"work sans", "Source Sans Pro", sans-serif',
       fontWeight: '800',
     },
-    // heading1: {
+    heading1: {
     //   fontSize: '1.85714em',
     //   fontWeight: '600',
     //   fontFamily: ({ typography }) => typography.headings.fontFamily,
     //   lineHeight: ({ typography }) => typography.lineHeight,
-    //   color: ({ colors }) => colors.primary.main,
+      color: ({ colors }) => colors.primary.main,
     //   capitalize: true,
-    // },
+    },
     // heading2: {
     //   fontSize: '1.57143em',
     //   fontWeight: '600',
