@@ -18,7 +18,7 @@ referenceDocs:
       heading1:
         color: "#2f2f59"
       heading2:
-        color: {{process.env.COLORS_PRIMARY_MAIN}}
+        color: "#ff0000"
   generateCodeSamples:
     languages:
       - lang: "curl"
