@@ -13,12 +13,12 @@ lint:
 
 referenceDocs:
   htmlTemplate: ./openapi/templates/index.html
-  # theme:
-  #   typography:
-  #     heading1:
-  #       color: "#2f2f59"
-  #     heading2:
-  #       color: "#194782"
+  theme:
+    typography:
+      heading1:
+        color: "#2f2f59"
+      heading2:
+        color: {{process.env.COLORS_PRIMARY_MAIN}}
   generateCodeSamples:
     languages:
       - lang: "curl"
