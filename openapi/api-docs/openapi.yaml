@@ -12,7 +12,7 @@ info:
   x-logo:
     url: ''
   description: 
-    $ref: './components/description-fispan.md'
+    $ref: ''
 x-tagGroups:
   - name: Authentication
     tags:
