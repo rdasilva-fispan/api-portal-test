@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: fispan.com
+  title: FISPAN
   contact:
     email: sales@fispan.com
     url: 'https://fispan.com/contact-us/'
@@ -26,11 +26,7 @@ x-tagGroups:
   - name: Vendor
     tags:
       - Vendor
-tags:
-  - name: OAuth Token
-    description: Authenticates the user and retrieves a valid OAuth2 Bearer Token.
-  - name: Vendor
-    description: Manages vendors in FI.SPAN platform.
+tags: []
 servers:
   - url: 'https://dev1.fispan.cloud'
   - url: 'http://localhost'
